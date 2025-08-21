@@ -1,19 +1,24 @@
 'use client'
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { useGastoContext } from "./Providers/ProviderGasto";
 
 export default function Home() {
   const [usuario, setUsuario]=useState('')
   const [clave, setClave] = useState('')
-  const {login} = useGastoContext()
+  const {login, isLogged} = useGastoContext()
   const router = useRouter()
+
+  useEffect(() =>{
+    if(isLogged){
+      router.push('/presupuesto')
+    }
+  }, [isLogged, router])
 
   const hLogin = () =>{
     if(usuario==='admin' && clave==='admin123'){
       login()
-      router.push('/presupuesto')
     }else{
       alert('usuario o la clave incorrecta')
     }
