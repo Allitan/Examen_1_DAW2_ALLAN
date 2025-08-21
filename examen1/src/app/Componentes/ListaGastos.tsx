@@ -11,7 +11,6 @@ export default function ListaGastos() {
             <thead>
                 <tr>
                     <th>Monto</th>
-                    <th>Descripcion</th>
                     <th>Categoria</th>
                     <th>Fecha</th>
                     <th>Acciones</th>
@@ -21,7 +20,7 @@ export default function ListaGastos() {
                 {gastos.map((gasto,index) => (
                     <tr key={gasto.idgasto || index}>
                         <td>{gasto.monto}</td>
-                        <td>{gasto.descripcion}</td>
+
                         <td>{gasto.categoria}</td>
                         <td>{gasto.fecha}</td>
                         <td><button className='btn btn-sm btn-danger' onClick={() => eliminarGasto(gasto.idgasto!)}>Eliminar</button></td>

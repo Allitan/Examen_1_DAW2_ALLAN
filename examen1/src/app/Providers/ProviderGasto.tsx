@@ -22,7 +22,7 @@ export default function ProviderGasto({children}: PlantillaNode) {
         setPresupuesto(monto);
     }, [])
 
-    const calcularAlerta = useCallback(() => {
+    const calcularAlerta = useCallback( () => {
         if(presupuesto===null || gastos.length === 0){
             setAlertaPresupuesto('ninguna')
             return

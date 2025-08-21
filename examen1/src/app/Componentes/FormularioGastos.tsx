@@ -9,7 +9,6 @@ export default function FormularioGastos() {
 
     const [categoria, setCategoria] = useState('')
     const [monto, setMonto] = useState<number| string>('')
-    const [descripcion, setDescripcio] = useState('')
     const [fecha, setFecha] = useState('');
 
     const hguardarGasto =(e: React.FormEvent) =>{
@@ -23,7 +22,7 @@ export default function FormularioGastos() {
         const nuevoGasto: Gasto={
             categoria,
             monto: parseFloat(monto as string),
-            descripcion,
+
             fecha
         }
 
@@ -31,7 +30,7 @@ export default function FormularioGastos() {
 
         setCategoria('')
         setMonto('');
-        setDescripcio('')
+        
         setFecha('')
     }   
   return (
@@ -42,9 +41,7 @@ export default function FormularioGastos() {
         <div className='mb-3'>
             <input type='number' className='form-control' placeholder='Monto' value={monto} onChange={(e) => setMonto(e.target.value)}/>
         </div>
-        <div className='mb-3'>
-            <input type='text' className='form-control' placeholder='Descripcion' value={descripcion} onChange={(e) => setDescripcio(e.target.value)}/>
-        </div>
+
         <div className='mb-3'>
             <input type='date' className='form-control' placeholder='Fecha' value={fecha} onChange={(e) => setFecha(e.target.value)}/>
         </div>
